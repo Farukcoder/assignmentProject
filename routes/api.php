@@ -22,13 +22,15 @@ Route::post('/login', 'Api\LoginController@loginApi');
 
 Route::post('/register', 'api\registerController@create');
 
+Route::get('/list_data', 'Api\registerController@index');
+
+
 Route::middleware('auth:api')->group(function () {
 
     // employee
     Route::prefix('/customer')->group(function () {
-        Route::get('/', 'Api\EmployeeController@index');
         Route::post('/store', 'Api\EmployeeController@store');
-        Route::get('/list_data', 'Api\EmployeeController@list_data');
+        Route::get('/list_data', 'Api\registerController@index');
         Route::post('/update', 'Api\EmployeeController@update');
         Route::post('/delete', 'Api\EmployeeController@destroy');
     });

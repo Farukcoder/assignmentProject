@@ -12,7 +12,7 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="javascript:;">
+            <a href="">
                 <div class="parent-icon icon-color-1"><i class="bx bx-home-alt"></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
@@ -20,7 +20,7 @@
         </li>
 
         <li>
-            <a href="javascript:void(0)">
+            <a href="{{ route('customer_list') }}">
                 <div class="parent-icon icon-color-5"><i class="bx bx-group"></i>
                 </div>
                 <div class="menu-title">Customer</div>

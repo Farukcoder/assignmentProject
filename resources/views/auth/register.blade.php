@@ -82,21 +82,21 @@
                     <div class="row no-gutters">
                         <div class="col-lg-6">
                             <div class="card-body p-md-5">
+                                <div class="text-center">
+                                    <img src="{{ asset('public/assets/images/logo-icon.png') }}" width="80" alt="">
+                                    <h3 class="mt-4 font-weight-bold">Create an Account</h3>
+                                </div>
                                 @if (!empty($result))
                                 <div class="alert bg-success text-white alert-dismissible fade show" role="alert"><strong>{{ $result['message'] }}</strong>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">	<span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 @endif
+                                <div class="login-separater text-center"> <span>REGISTER</span>
+                                    <hr />
+                                </div>
                                 <form method="POST" action="{{ route('userRegister') }}">
                                     @csrf
-                                    <div class="text-center">
-                                        <img src="{{ asset('public/assets/images/logo-icon.png') }}" width="80" alt="">
-                                        <h3 class="mt-4 font-weight-bold">Create an Account</h3>
-                                    </div>
-                                    <div class="login-separater text-center"> <span>REGISTER</span>
-                                        <hr />
-                                    </div>
                                     <div class="form-group mt-4">
                                         <label>Name</label>
                                         <input type="text" name="name" id="name" class="form-control" placeholder="Jhon" />

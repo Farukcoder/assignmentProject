@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Customer;
 
 class registerUserController extends Controller
 {
@@ -13,6 +14,10 @@ class registerUserController extends Controller
      */
     public function index()
     {
+
+        $data = Customer::whereNull('deleted_at')->get();
+
+        return view('customer',compact('data'));
     }
 
     /**

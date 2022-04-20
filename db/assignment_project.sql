@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2022 at 04:08 PM
+-- Generation Time: Apr 20, 2022 at 08:11 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -39,6 +39,14 @@ CREATE TABLE `customer` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `name`, `email`, `private_user_name`, `address`, `ssn`, `stripe_scret_key`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(3, 'admin', 'admin@gmail.com', 'dc_feni', 'ssdfsdf', 2312323, 'vCYJNN7wzlbOwPzLxzEJncFDbjrOnVarw0DSrCCT', NULL, NULL, NULL),
+(4, 'admin', 'ad@gmail.com', 'alam', 'sdfsdf', 2312323, 'vCYJNN7wzlbOwPzLxzEJncFDbjrOnVarw0DSrCCT', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +105,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_id` int(11) UNSIGNED NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -110,8 +119,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'test@gmail.com', NULL, '$2y$10$/xf2FbqsAcRktQQzFeBGSuwjBtdByvPYTJF0ME2S5HQ4v5X7WWGWS', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `customer_id`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 0, 'test', 'test@gmail.com', NULL, '$2y$10$/xf2FbqsAcRktQQzFeBGSuwjBtdByvPYTJF0ME2S5HQ4v5X7WWGWS', NULL, NULL, NULL),
+(3, 3, 'dc_feni', 'admin@gmail.com', NULL, '$2y$10$Fi4OVNfHfY5Dartq86XXOe95r6aY40jZifDYzuy5ftRroKR508Ocq', NULL, NULL, NULL),
+(4, 4, 'alam', 'ad@gmail.com', NULL, '$2y$10$sOb3UbGJYnyExnXWubeWceAcvfhpejah/BXhoSiBgKjipOTofOy0.', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -158,7 +169,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -176,7 +187,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

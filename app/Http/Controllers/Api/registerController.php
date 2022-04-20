@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Customer;
 
 class registerController extends Controller
 {
@@ -18,6 +19,13 @@ class registerController extends Controller
     public function index()
     {
         //
+    }
+
+    public function list_data()
+    {
+        $data = Customer::whereNull('deleted_at')->get();
+
+        return $data;
     }
 
     /**

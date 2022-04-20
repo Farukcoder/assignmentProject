@@ -23,4 +23,6 @@ Route::post('login/','LoginUserController@login')->name('userLogin');
 
 Route::post('register/','registerUserController@create')->name('userRegister');
 
+Route::get('customer_list/','registerUserController@index')->name('customer_list');
+
 Route::get('/home', 'HomeController@index')->name('home');
