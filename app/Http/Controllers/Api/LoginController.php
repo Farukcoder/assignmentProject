@@ -15,11 +15,11 @@ class LoginController extends Controller
     {
 
         $this->validate($request, [
-            "email" => "required",
+            "username" => "required",
             "password" => "required"
         ]);
 
-        $user = User::where("email", $request->email)->first();
+        $user = User::where("username", $request->username)->first();
 
         // if not found this user
         if (empty($user)) {

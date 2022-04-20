@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="container">
+    {{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -75,76 +75,91 @@
     </div>
 </div> --}}
 
-<div class="section-authentication-register d-flex align-items-center justify-content-center">
-    <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-            <div class="card radius-15">
-                <div class="row no-gutters">
-                    <div class="col-lg-6">
-                        <div class="card-body p-md-5">
-                            <div class="text-center">
-                                <img src="{{ asset('public/assets/images/logo-icon.png')}}" width="80" alt="">
-                                <h3 class="mt-4 font-weight-bold">Create an Account</h3>
-                            </div>
-                            <div class="login-separater text-center"> <span>REGISTER</span>
-                                <hr/>
-                            </div>
-                            <div class="form-group mt-4">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Jhon" />
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <input type="text" class="form-control" placeholder="example@user.com" />
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <textarea name="" id="" cols="10" rows="3"class="form-control"></textarea>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Username</label>
-                                    <input class="form-control border-right-0" type="text" placeholder="username">
+    <div class="section-authentication-register d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-12 col-lg-10 mx-auto">
+                <div class="card radius-15">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5">
+                                @if (!empty($result))
+                                <div class="alert bg-success text-white alert-dismissible fade show" role="alert"><strong>{{ $result['message'] }}</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">	<span aria-hidden="true">×</span>
+                                    </button>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>Password</label>
-                                    <div class="input-group" id="show_hide_password">
-                                        <input class="form-control border-right-0" type="password" value="12345678">
-                                        <div class="input-group-append">	<a href="javascript:;" class="input-group-text bg-transparent border-left-0"><i class='bx bx-hide'></i></a>
+                                @endif
+                                <form method="POST" action="{{ route('userRegister') }}">
+                                    @csrf
+                                    <div class="text-center">
+                                        <img src="{{ asset('public/assets/images/logo-icon.png') }}" width="80" alt="">
+                                        <h3 class="mt-4 font-weight-bold">Create an Account</h3>
+                                    </div>
+                                    <div class="login-separater text-center"> <span>REGISTER</span>
+                                        <hr />
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label>Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Jhon" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email Address</label>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="example@user.com" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea name="address" id="address" cols="10" rows="3" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label>Username</label>
+                                            <input class="form-control border-right-0" type="text" name="username" id="username" placeholder="username">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Password</label>
+                                            <div class="input-group" id="show_hide_password">
+                                                <input class="form-control border-right-0" type="password" name="password" id="password">
+                                                <div class="input-group-append"> <a href="javascript:;"
+                                                        class="input-group-text bg-transparent border-left-0"><i
+                                                            class='bx bx-hide'></i></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>SSN NO</label>
-                                <input type="text" name="ssn" id="ssn"class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">I read and agree to Terms & Conditions</label>
-                                </div>
-                            </div>
-                            <div class="btn-group mt-3 w-100">
-                                <button type="button" class="btn btn-primary btn-block">Register</button>
-                                <button type="button" class="btn btn-primary"><i class="lni lni-arrow-right"></i>
-                                </button>
-                            </div>
-                            <hr/>
-                            <div class="text-center mt-4">
-                                <p class="mb-0">Already have an account? <a href="{{ route('login') }}">Login</a>
-                                </p>
+                                    <div class="form-group">
+                                        <label>SSN NO</label>
+                                        <input type="text" name="ssn" id="ssn" class="form-control">
+                                        {{-- <input type="hidden" name="stripe_scret_key" id="stripe_scret_key" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" class="form-control"> --}}
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">I read and agree to Terms
+                                                & Conditions</label>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group mt-3 w-100">
+                                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                        {{-- <button type="button" class="btn btn-primary"><i class="lni lni-arrow-right"></i>
+                                        </button> --}}
+                                    </div>
+                                    <hr />
+                                    <div class="text-center mt-4">
+                                        <p class="mb-0">Already have an account? <a
+                                                href="{{ route('login') }}">Login</a>
+                                        </p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <img src="{{ asset('public/assets/images/login-images/register-frent-img.jpg') }}"
+                                class="card-img login-img h-100" alt="...">
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <img src="{{ asset('public/assets/images/login-images/register-frent-img.jpg')}}" class="card-img login-img h-100" alt="...">
-                    </div>
+                    <!--end row-->
                 </div>
-                <!--end row-->
             </div>
         </div>
     </div>
-</div>
 @endsection

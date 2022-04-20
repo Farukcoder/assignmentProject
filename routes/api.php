@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', 'Api\LoginController@loginApi');
 
+Route::post('/register', 'api\registerController@create');
+
 Route::middleware('auth:api')->group(function () {
 
     // employee

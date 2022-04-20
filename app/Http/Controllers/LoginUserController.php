@@ -14,7 +14,7 @@ class LoginUserController extends Controller
         $http = new \GuzzleHttp\Client;
 
         $url = env('APP_URL') . 'api/login';
-        $email = $request->email;
+        $username = $request->username;
         $password = $request->password;
         $response = $http->post($url, [
             'headers' => [
@@ -22,7 +22,7 @@ class LoginUserController extends Controller
                 'APP-KEY' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
             ],
             'query' => [
-                'email' => $email,
+                'username' => $username,
                 'password' => $password
 
             ]
