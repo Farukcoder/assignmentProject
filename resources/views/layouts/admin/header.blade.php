@@ -16,19 +16,6 @@
                 <a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
                 </a>
             </div>
-            <div class="flex-grow-1 search-bar">
-                <div class="input-group">
-                    <div class="input-group-prepend search-arrow-back">
-                        <button class="btn btn-search-back" type="button"><i class="bx bx-arrow-back"></i>
-                        </button>
-                    </div>
-                    <input type="text" class="form-control" placeholder="search" />
-                    <div class="input-group-append">
-                        <button class="btn btn-search" type="button"><i class="lni lni-search-alt"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
             <div class="right-topbar ml-auto">
                 <ul class="navbar-nav">
                     <li class="nav-item search-btn-mobile">
@@ -326,29 +313,7 @@
                                     class="bx bx-power-off"></i><span>Logout</span></a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown dropdown-language">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-toggle="dropdown">
-                            <div class="lang d-flex">
-                                <div><i class="flag-icon flag-icon-um"></i>
-                                </div>
-                                <div><span>En</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">	<a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-de"></i><span>German</span></a>
-                            <a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-fr"></i><span>French</span></a>
-                            <a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-um"></i><span>English</span></a>
-                            <a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-in"></i><span>Hindi</span></a>
-                            <a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-cn"></i><span>Chinese</span></a>
-                            <a class="dropdown-item" href="javascript:;"><i
-                                    class="flag-icon flag-icon-ae"></i><span>Arabic</span></a>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </nav>

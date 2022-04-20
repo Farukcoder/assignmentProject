@@ -23,13 +23,13 @@ class LoginController extends Controller
 
         // if not found this user
         if (empty($user)) {
-            return response()->json(['message' => 'sorry please registration','data' => $user]);
+            return response()->json(['message' => 'Sorry please registration','data' => $user]);
         }
 
         if (Hash::check($request->password, $user->password)) {
             return response()->json(['message' => 'User login successfully', 'data' => $user]);
         } else {
-            return response()->json(['message' => 'sorry please registration']);
+            return response()->json(['message' => 'Sorry please registration','data' => $user]);
         }
     }
 }
